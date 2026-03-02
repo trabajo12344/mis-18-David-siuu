@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¡Mis 18 Años | David</title>
+    
+    <!-- Metaetiquetas esenciales para WhatsApp -->
+    <meta property="og:title" content="¡Mis 18 David!">
+    <meta property="og:description" content="Te invito a festejar mis 18 ¡ Veni !">
+    <meta property="og:image" content="https://agus-cdba.github.io/mis-18-hernan.github.io/images/espalda.jpg">
+    <meta property="og:url" content="https://agus-cdba.github.io/mis-18-hernan.github.io/">
+    <meta property="og:type" content="website">
+    
+    <meta name="description" content="Invitación a mis 18 años de David. 14 de Marzo en Quinta. Confirmáme tu asistencia por WhatsApp">
+    <meta name="keywords" content="cumpleaños, 18 años, fiesta, David, invitación digital, quinta">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: #ffffff;
+            overflow-x: hidden;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #0a0e17 0%, #1a2238 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;  
+        }
+        
+        .container {
+            max-width: 1000px;
+            width: 100%;
+            background: rgba(48, 10, 48, 0.9);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(0, 51, 255, 0.534);
+        }
+        
+        .header {
+            text-align: center;
+            padding: 30px 20px;
+            background: linear-gradient(135deg, rgba(140, 0, 255, 0.2) 0%, rgba(0, 119, 255, 0.2) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .edad {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            width: 60px;
+            height: 60px;
+            background: #ffd700;
+            color: #0a0a1a;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            font-weight: bold;
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.7);
+            z-index: 10;
+            border: 2px solid #00aeff;
+        }
+        
+        .titulo {
+            font-size: 3rem;
+            color: #22b377;
+            text-shadow: 0 0 15px rgba(103, 197, 240, 0.792);
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        
+        .subtitulo {
+            font-family: 'Dancing Script', cursive;
+            font-size: 3.5rem;
+            color: #3698c6;
+            margin-bottom: 40px;
+        }
+        
+        .contenido {
+            padding: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        
+        .foto-section {
+            flex: 1;
+            min-width: 0;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .marco-foto {
+            border: 5px solid #a5c151;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            background: #2a2a4a;
+            height: 350px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #9086be;
+            font-style: italic;
+            position: relative;
+            touch-action: pan-y;
+        }
+        
+        /* Estilos para el carrusel - MODIFICADO PARA 6 FOTOS */
+        .carrusel {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        
+        .carrusel-imagenes {
+            display: flex;
+            width: 600%; /* Cambiado a 600% para 6 imágenes (6 * 100%) */
+            height: 150%;
+            transition: transform 0.5s ease;
+        }
+        
+        .carrusel-img {
+            width: 16.666%; /* 100% / 6 imágenes = 16.666% */
+            height: 100%;
+            object-fit: cover;
+            user-select: none;
+        }
+        
+        .carrusel-controls {
+            position: absolute;
+            bottom: 10px;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            z-index: 20;
+        }
+        
+        .carrusel-indicador {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .carrusel-indicador.activo {
+            background-color: #00eeff;
+            transform: scale(1.2);
+        }
+        
+        /* Controles de navegación */
+        .carrusel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 20;
+            transition: all 0.3s ease;
+        }
+        
+        .carrusel-btn:hover {
+            background: rgba(0, 0, 0, 0.8);
+        }
+        
+        .carrusel-btn.prev {
+            left: 8px;
+        }
+        
+        .carrusel-btn.next {
+            right: 8px;
+        }
+        
+        .texto-invitacion {
+            flex: 1;
+            min-width: 0;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            border-left: 4px solid #0066ff;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        
+        .saludo {
+            font-size: 1.5rem;
+            color: #4bef69;
+            margin-bottom: 10px;
+            font-family: 'Dancing Script', cursive;
+        }
+        
+        .mensaje {
+            line-height: 1.5;
+            margin-bottom: 12px;
+            font-size: 1rem;
+        }
+        
+        .destacado {
+            color: #5377e5;
+            font-weight: bold;
+        }
+        
+        .detalles {
+            margin-top: 10px;
+        }
+        
+        .detalle-item {
+            display: flex;
+            margin-bottom: 10px;
+            align-items: center;
+        }
+        
+        .icono {
+            width: 32px;
+            height: 32px;
+            background: rgba(0, 174, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 10px;
+            color: #ffd700;
+            font-size: 1rem;
+            flex-shrink: 0;
+        }
+        
+        .info-detalle {
+            flex: 1;
+        }
+        
+        .titulo-detalle {
+            font-weight: bold;
+            color: #00ff33;
+            margin-bottom: 2px;
+            font-size: 0.9rem;
+        }
+        
+        .ubicacion-link {
+            color: #00aeff;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            font-size: 0.9rem;
+        }
+        
+        .ubicacion-link:hover {
+            color: #7b00ff;
+            text-decoration: underline;
+        }
+        
+        .nota-pileta {
+            background: rgba(0, 174, 255, 0.1);
+            border: 1px solid rgba(0, 174, 255, 0.3);
+            padding: 10px;
+            margin-top: 12px;
+            border-radius: 8px;
+            font-style: italic;
+            font-size: 0.9rem;
+        }
+        
+        /* Sección de alias horizontal */
+        .seccion-alias-horizontal {
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.1) 0%, rgba(0, 174, 255, 0.1) 100%);
+            border-radius: 15px;
+            padding: 20px;
+            margin: 0 20px 20px;
+            text-align: center;
+            border: 1px dashed #00ff66;
+        }
+        
+        .titulo-alias {
+            font-size: 1.5rem;
+            color: #73ff00;
+            margin-bottom: 12px;
+            font-family: 'Dancing Script', cursive;
+        }
+        
+        .alias-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            width: 100%;
+        }
+        
+        .alias-texto {
+            font-size: 1.5rem;
+            color: #00aeff;
+            font-weight: bold;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 12px 15px;
+            border-radius: 10px;
+            border: 2px solid #3cd1bd;
+            text-shadow: 0 0 10px rgba(0, 174, 255, 0.5);
+            flex: 1;
+            min-width: 200px;
+            text-align: center;
+        }
+        
+        .btn-copiar {
+            background: linear-gradient(135deg, #00aeff 0%, #0077ff 100%);
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            font-size: 0.9rem;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: bold;
+            box-shadow: 0 5px 15px rgba(0, 174, 255, 0.5);
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            white-space: nowrap;
+        }
+        
+        .btn-copiar:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 174, 255, 0.7);
+        }
+        
+        .nota-alias {
+            font-style: italic;
+            color: #00ff7b;
+            margin-top: 12px;
+            font-size: 0.85rem;
+        }
+        
+        .countdown {
+            display: flex;
+            justify-content: space-between;
+            margin: 30px 0;
+            gap: 10px;
+            padding: 0 20px;
+        }
+        
+        .countdown-item {
+            flex: 1;
+            text-align: center;
+            background: rgba(0, 174, 255, 0.1);
+            padding: 15px;
+            border-radius: 10px;
+            border: 1px solid rgba(0, 174, 255, 0.3);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .countdown-numero {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #00aeff;
+            text-shadow: 0 0 10px rgba(0, 174, 255, 0.5);
+        }
+        
+        .countdown-texto {
+            color: #3bcf68;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            margin-top: 8px;
+        }
+        
+        .confirmacion {
+            text-align: center;
+            margin: 25px 0;
+            padding: 0 20px;
+        }
+        
+        .btn-whatsapp {
+            background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+            color: white;
+            border: none;
+            padding: 14px 30px;
+            font-size: 1.1rem;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: bold;
+            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.5);
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+        }
+        
+        .btn-whatsapp:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(37, 211, 102, 0.7);
+        }
+        
+        .firma {
+            text-align: right;
+            margin-top: 25px;
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.8rem;
+            color: #51c44f;
+            padding: 0 20px;
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 15px;
+            background: rgba(0, 0, 0, 0.3);
+            border-top: 1px solid rgba(0, 174, 255, 0.3);
+        }
+        
+        /* Media Queries para Responsive */
+        @media (max-width: 768px) {
+            .header {
+                padding: 25px 15px;
+            }
+            
+            .edad {
+                width: 50px;
+                height: 50px;
+                font-size: 1.5rem;
+                top: 10px;
+                right: 10px;
+            }
+            
+            .titulo {
+                font-size: 2.2rem;
+            }
+            
+            .subtitulo {
+                font-size: 2rem;
+            }
+            
+            .contenido {
+                flex-direction: column;
+                padding: 15px;
+                gap: 15px;
+            }
+            
+            .marco-foto {
+                height: 280px;
+            }
+            
+            .texto-invitacion {
+                padding: 15px;
+            }
+            
+            .saludo {
+                font-size: 1.4rem;
+            }
+            
+            .mensaje {
+                font-size: 0.95rem;
+            }
+            
+            .alias-texto {
+                font-size: 1.3rem;
+                min-width: 100%;
+            }
+            
+            .btn-copiar {
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .countdown {
+                flex-wrap: wrap;
+            }
+            
+            .countdown-item {
+                flex-basis: calc(50% - 10px);
+                margin-bottom: 10px;
+            }
+            
+            .countdown-numero {
+                font-size: 1.8rem;
+            }
+            
+            .btn-whatsapp {
+                width: 100%;
+                justify-content: center;
+                padding: 12px 20px;
+                font-size: 1rem;
+            }
+            
+            .firma {
+                font-size: 1.6rem;
+                text-align: center;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            body {
+                padding: 10px;
+            }
+            
+            .container {
+                border-radius: 15px;
+            }
+            
+            .titulo {
+                font-size: 1.8rem;
+            }
+            
+            .subtitulo {
+                font-size: 1.7rem;
+            }
+            
+            .marco-foto {
+                height: 250px;
+            }
+            
+            .carrusel-btn {
+                width: 30px;
+                height: 30px;
+            }
+            
+            .countdown-item {
+                flex-basis: 100%;
+            }
+            
+            .countdown-numero {
+                font-size: 1.6rem;
+            }
+            
+            .seccion-alias-horizontal {
+                margin: 0 15px 15px;
+                padding: 15px;
+            }
+            
+            .titulo-alias {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1 class="titulo">¡Mis 18!</h1>
+            <h2 class="subtitulo">David</h2>
+        </div>
+        
+        <div class="contenido">
+            <div class="foto-section">
+                <div class="marco-foto">
+                    <!-- Carrusel de 6 fotos (4 originales + 2 nuevas) -->
+                    <div class="carrusel">
+                        <div class="carrusel-imagenes">
+                            <img src="images/Spidermandavid.jfif" alt="David 1"  class="carrusel-img">
+                            <img src="images/gorradavid.jfif" alt="David 2" class="carrusel-img">
+                            <img src="images/jardin.jfif" alt="David 3" class="carrusel-img">
+                            <img src="images/futbolista.jfif" alt="David 4" class="carrusel-img">
+                            <!-- Agregamos 2 imágenes más -->
+                            <img src="images/manejandodavid.jfif" alt="David 5" class="carrusel-img">
+                            <img src="images/facha.jfif" alt="David 6" class="carrusel-img">
+                        </div>
+                        <div class="carrusel-controls">
+                            <div class="carrusel-indicador activo" data-index="0"></div>
+                            <div class="carrusel-indicador" data-index="1"></div>
+                            <div class="carrusel-indicador" data-index="2"></div>
+                            <div class="carrusel-indicador" data-index="3"></div>
+                            <div class="carrusel-indicador" data-index="4"></div>
+                            <div class="carrusel-indicador" data-index="5"></div>
+                        </div>
+                        <button class="carrusel-btn prev">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <button class="carrusel-btn next">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="texto-invitacion">
+                <div>
+                    <h3 class="saludo">¡Hola a todos!</h3>
+                    <p class="mensaje">
+                        Después de <span class="destacado">18 años</span> ¡llegó el dia! 
+                        No me queria hacer mayor sin festejar con toda la gente que más quiero en el mundo.
+                    </p>
+                    <p class="mensaje">
+                        Así que los espero para pasar una noche juntos!
+                    </p>
+                </div>
+                
+                <div class="detalles">
+                    <div class="detalle-item">
+                        <div class="icono">📅</div>
+                        <div class="info-detalle">
+                            <div class="titulo-detalle">Fecha</div>
+                            <div>14 de Marzo</div>
+                        </div>
+                    </div>
+                    
+                    <div class="detalle-item">
+                        <div class="icono">⏰</div>
+                        <div class="info-detalle">
+                            <div class="titulo-detalle">Hora</div>
+                            <div> 20:30pm a 3:00am</div>
+                        </div>
+                    </div>
+                    
+                    <div class="detalle-item">
+                        <div class="icono">📍</div>
+                        <div class="info-detalle">
+                            <div class="titulo-detalle">Lugar</div>
+                            <div>
+                                <a class="ubicacion-link" id="ubicacionLink" target="_blank">
+                                    Poeta Risso  - Una Quinta | click para ver ubicacion
+                                    <i class="fas fa-map-marker-alt" style="margin-left: 5px;"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                  <div class="nota-pileta">
+                    <strong></strong> Vestimenta: vengan mas o menos normal o elegante Tampoco tanto.
+                </div>
+                
+            </div>
+        </div>
+        
+        <!-- Sección de alias horizontal -->
+        <div class="seccion-alias-horizontal">
+            <h3 class="titulo-alias">¿Queres regalarme algo ,pero no sabes que? no pasa nada ,dejo mi alias pa la plata </h3>
+            <div class="alias-container">
+                <div class="alias-texto" id="aliasText">davidg123-</div>
+                <button class="btn-copiar" onclick="copyAlias()">
+                    <i class="fas fa-copy"></i> Copiar Alias
+                </button>
+            </div>
+            <p class="nota-alias"></p>
+        </div>
+        
+        <div>
+            <h3 style="text-align: center; color: #2fef58; margin-bottom: 20px; font-family: 'Dancing Script', cursive; font-size: 2rem;">
+                Cuenta regresiva
+            </h3>
+            
+            <div class="countdown">
+                <div class="countdown-item">
+                    <div class="countdown-numero" id="days">00</div>
+                    <div class="countdown-texto">Días</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-numero" id="hours">00</div>
+                    <div class="countdown-texto">Horas</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-numero" id="minutes">00</div>
+                    <div class="countdown-texto">Minutos</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-numero" id="seconds">00</div>
+                    <div class="countdown-texto">Segundos</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="confirmacion">
+            <!-- REEMPLAZA ESTE ENLACE CON TU NÚMERO Y MENSAJE PERSONALIZADO -->
+            <a href="https://wa.me/5491163081280?text=¡Hola%20Hernán!%20si%20voy%20a%20asistir%20" class="btn-whatsapp" target="_blank">
+                <i class="fab fa-whatsapp"></i> Confirmar por WhatsApp
+            </a>
+        </div>
+        
+        <div class="firma">Deivid</div>
+        
+        <div class="footer">
+            <p>¡espero que estes!</p>
+        </div>
+    </div>
+
+    <script>
+        // Cuenta regresiva (14 de  marzo 2026, 20:30)
+        const birthdayDate = new Date(2026, 2, 14, 20, 30);
+        function updateCountdown() {
+          const now = new Date();
+          const timeDifference = birthdayDate - now;
+          if (timeDifference <= 0) return;
+          const days = Math.floor(timeDifference / (1000*60*60*24));
+          const hours = Math.floor((timeDifference % (1000*60*60*24)) / (1000*60*60));
+          const minutes = Math.floor((timeDifference % (1000*60*60)) / (1000*60));
+          const seconds = Math.floor((timeDifference % (1000*60)) / 1000);
+          document.getElementById('days').textContent = days.toString().padStart(2,'0');
+          document.getElementById('hours').textContent = hours.toString().padStart(2,'0');
+          document.getElementById('minutes').textContent = minutes.toString().padStart(2,'0');
+          document.getElementById('seconds').textContent = seconds.toString().padStart(2,'0');
+        }
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+    
+        // Carrusel - CÓDIGO CORREGIDO
+        let currentIndex = 0;
+        const totalImages = 6; // Ahora son 6 imágenes
+        const carrusel = document.querySelector('.carrusel-imagenes');
+        const indicadores = document.querySelectorAll('.carrusel-indicador');
+        const prevBtn = document.querySelector('.carrusel-btn.prev');
+        const nextBtn = document.querySelector('.carrusel-btn.next');
+        
+        function moverCarrusel() {
+            // Mueve el carrusel a la imagen actual
+            carrusel.style.transform = `translateX(-${currentIndex * 16.666}%)`;
+            
+            // Actualiza los indicadores
+            indicadores.forEach((ind, index) => {
+                if (index === currentIndex) {
+                    ind.classList.add('activo');
+                } else {
+                    ind.classList.remove('activo');
+                }
+            });
+        }
+        
+        function nextSlide() {
+            currentIndex = (currentIndex + 1) % totalImages;
+            moverCarrusel();
+        }
+        
+        function prevSlide() {
+            currentIndex = (currentIndex - 1 + totalImages) % totalImages;
+            moverCarrusel();
+        }
+        
+        // Iniciar el carrusel automático (cada 2 segundos)
+        let carruselInterval = setInterval(nextSlide, 2000);
+        
+        // Agregar eventos a los indicadores
+        indicadores.forEach(ind => {
+            ind.addEventListener('click', function() {
+                // Reiniciar el intervalo al hacer clic manual
+                clearInterval(carruselInterval);
+                currentIndex = parseInt(this.getAttribute('data-index'));
+                moverCarrusel();
+                carruselInterval = setInterval(nextSlide, 2000);
+            });
+        });
+        
+        // Agregar eventos a los botones
+        prevBtn.addEventListener('click', function() {
+            clearInterval(carruselInterval);
+            prevSlide();
+            carruselInterval = setInterval(nextSlide, 2000);
+        });
+        
+        nextBtn.addEventListener('click', function() {
+            clearInterval(carruselInterval);
+            nextSlide();
+            carruselInterval = setInterval(nextSlide, 2000);
+        });
+        
+        // Funcionalidad de deslizar con el dedo
+        const carruselContainer = document.querySelector('.carrusel');
+        let startX = 0;
+        let currentX = 0;
+        let isDragging = false;
+        
+        carruselContainer.addEventListener('touchstart', function(e) {
+            startX = e.touches[0].clientX;
+            currentX = startX;
+            isDragging = true;
+            clearInterval(carruselInterval); // Pausar el carrusel automático al tocar
+        });
+        
+        carruselContainer.addEventListener('touchmove', function(e) {
+            if (!isDragging) return;
+            currentX = e.touches[0].clientX;
+        });
+        
+        carruselContainer.addEventListener('touchend', function() {
+            if (!isDragging) return;
+            isDragging = false;
+            
+            const diffX = startX - currentX;
+            const threshold = 50; // Mínimo desplazamiento para cambiar de imagen
+            
+            if (Math.abs(diffX) > threshold) {
+                if (diffX > 0) {
+                    // Deslizamiento hacia la izquierda - siguiente imagen
+                    nextSlide();
+                } else {
+                    // Deslizamiento hacia la derecha - imagen anterior
+                    prevSlide();
+                }
+            }
+            
+            // Reanudar el carrusel automático después de 2 segundos
+            carruselInterval = setInterval(nextSlide, 2000);
+        });
+        
+        // También agregar soporte para mouse (para probar en desktop)
+        carruselContainer.addEventListener('mousedown', function(e) {
+            startX = e.clientX;
+            currentX = startX;
+            isDragging = true;
+            clearInterval(carruselInterval);
+            e.preventDefault();
+        });
+        
+        carruselContainer.addEventListener('mousemove', function(e) {
+            if (!isDragging) return;
+            currentX = e.clientX;
+        });
+        
+        carruselContainer.addEventListener('mouseup', function() {
+            if (!isDragging) return;
+            isDragging = false;
+            
+            const diffX = startX - currentX;
+            const threshold = 50;
+            
+            if (Math.abs(diffX) > threshold) {
+                if (diffX > 0) {
+                    nextSlide();
+                } else {
+                    prevSlide();
+                }
+            }
+            
+            carruselInterval = setInterval(nextSlide, 2000);
+        });
+        
+        carruselContainer.addEventListener('mouseleave', function() {
+            if (isDragging) {
+                isDragging = false;
+                carruselInterval = setInterval(nextSlide, 2000);
+            }
+        });
+    
+        // Copiar alias
+        function copyAlias() {
+          const alias = document.getElementById('aliasText').textContent;
+          navigator.clipboard.writeText(alias);
+          alert("Alias copiado: " + alias);
+        }
+        
+        document.getElementById('ubicacionLink').addEventListener('click', function() {
+            const url = `https://maps.app.goo.gl/dBUoKQFEsxxUZKtH9`;
+            window.open(url, '_blank');
+        });
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
